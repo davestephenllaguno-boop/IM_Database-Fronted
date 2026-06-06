@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Profile - PUP Attendance System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">PUP Attendance System</div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="profile.html">My Profile</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Edit Your Profile</h2>
+      <form id="profileForm">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="employeeId">ID Number</label>
+          <input type="text" id="employeeId" name="employeeId" readonly />
+        </div>
+
+        <div class="form-group">
+          <label for="department">Department/Program</label>
+          <input type="text" id="department" name="department" />
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn">Save Changes</button>
+          <a href="dashboard.html" class="btn btn-outline">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      const userData = {
+        fullname: "Juan Dela Cruz",
+        email: "juan@pup.edu.ph",
+        employeeId: "2024-00123",
+        department: "BSIT 2-1"
+      };
+
+      document.getElementById("fullname").value = userData.fullname;
+      document.getElementById("email").value = userData.email;
+      document.getElementById("employeeId").value = userData.employeeId;
+      document.getElementById("department").value = userData.department;
+    };
+
+    document.getElementById("profileForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("✅ Profile updated successfully!");
+      window.location.href = "dashboard.html";
+    });
+  </script>
+</body>
+</html>

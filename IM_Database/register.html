@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account - PUP Attendance System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <h2>Create Your Account</h2>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required placeholder="Juan A. Dela Cruz" />
+      </div>
+
+      <div class="form-group">
+        <label for="employeeId">Student/Employee ID</label>
+        <input type="text" id="employeeId" name="employeeId" required placeholder="e.g. 2024-01234" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="your.email@pup.edu.ph" />
+      </div>
+
+      <div class="form-group">
+        <label for="department">Department/Program</label>
+        <input type="text" id="department" name="department" required placeholder="BSIT, BSBA, etc." />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required placeholder="Create a strong password" />
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Re-enter your password" />
+      </div>
+
+      <button type="submit" class="btn btn-center btn-block">Register Account</button>
+    </form>
+
+    <a href="login.html" class="link">Already have an account? Log in here</a>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const pass = document.getElementById("password").value;
+      const confirmPass = document.getElementById("confirmPassword").value;
+
+      if (pass !== confirmPass) {
+        alert("❌ Passwords do not match! Please try again.");
+        return;
+      }
+
+      // Collect form data
+      const newUser = {
+        fullname: document.getElementById("fullname").value,
+        employeeId: document.getElementById("employeeId").value,
+        email: document.getElementById("email").value,
+        department: document.getElementById("department").value,
+        password: pass
+      };
+
+      console.log("New User Registered:", newUser);
+      alert("✅ Account created successfully! You can now log in.");
+
+      // Later you can replace this with saving to database
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
